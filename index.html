@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Pokemon Battle</title>
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAC5ubkAnZ2dAIKCggBmZmYAZ2dnUiUlJawAAADoAAAA7gAAAO4BAQHoKCgorG5ublJxcXEAjIyMAKWlpQDAwMAAubm5AKGhoQB4eHgaLCwssgAAAP8AAAD/LCws/0dHR/9HR0f/LCws/wAAAP8AAAD/MTExs4KCghqpqakAwMDAALm5uQChoaEZGhoa0wAAAP9CQkL/rq6u/9vb2//m5ub/5ubm/9ra2v+urq7/Q0ND/wAAAP8dHR3Tq6urGcHBwQDc3NwDLCwstgAAAP9oaGj/5OTk/+vr6//o6Oj/29vb/93d3f/p6en/6enp/+Tk5P9paWn/AAAA/zAwMLbj4+MDhoaGUQAAAP9GRkb/6Ojo/+vr6//Kysr/V1dX/x0dHf8kJCX/cHBx/9ra2//n5+f/6Ojo/0dHR/8AAAD/i4uLUR8fH7MFBQX/vr6+//j4+P/S0tL/IyMj/xoaGv90dHT/aGho/wsLC/9GRkb/5eXm//Ly9f+9vcD/BAQE/yEhIbMBAQHqKysr/8zMy//X19f/Xl5e/x0dHf/U1NT/7e3t/+/v7/+4uLj/CAgI/4yMjP/W1tb/zMzL/ysrK/8CAgLrAAAA7wQEAP8KCgD/CQkA/wAAAP9/f4D/+fn5/+Xl5f/m5ub/9/f3/1NTVP8CAgD/CgoA/woKAP8FBQH/AAAA7wAAAO8AACT/AABy/wAAcv8AAB7/fn53///////w8PD/8fHx//////9TU0v/AAAl/wAAc/8AAHP/AAAl/wAAAO8GBgHqAAA6/wAA//8AAP//AACT/yUlFf/b29n///////////+5ubb/DQ0C/wAApP8AAP//AAD//wAAO/8ICALqIiIfswAAA/8AALb/AADr/wAA4P8AAEn/GRkQ/2lpW/9eXlH/CwsD/wAAV/8AAOP/AADq/wAAt/8AAAP/JCQhs4WFhVEAAAD/AAA//wAA1/8AANb/AADQ/wAAf/8AAFv/AABc/wAAhP8AANL/AADW/wAA2P8AAEL/AAAA/4uLi1Hc3NwDLCwstgAAAP8AAFv/AADG/wAAyv8AAM3/AADP/wAAz/8AAM3/AADK/wAAx/8AAFz/AAAA/zAwL7fj4+MDubm5AJ+fnxoZGRjTAAAA/wAANf8AAI3/AACx/wAAuv8AALr/AACx/wAAjv8AADb/AAAA/x0dHNOnp6cav7+/ALm5uQCenp4AdHR0GiwsK7IAAAD/AAAA/wAAIv8AADj/AAA4/wAAIf8AAAD/AAAA/zMzM7KCgoIapaWlAL+/vwC5ubkAmpqaAH5+fgBkZGQAYWFhUiQkI6sGBgDoAAAA7gAAAO4ICAHoKiooq2xsbFJ0dHQAjY2NAKGhoQC/v78A+B8AAOAHAADAAwAAgAEAAIABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQAAgAEAAMADAADgBwAA+B8AAA==" rel="icon" type="image/x-icon" />
+    <link href="css/main.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Bangers|Cabin+Sketch:400,700|Freckle+Face|Press+Start+2P" rel="stylesheet">
+  </head>
+  <body>
+      <audio autoplay id="background-music">
+          <source src="audio/pokemon_music.mp3" type="audio/mp3">
+        </audio>
+        <audio id="hit-sound">
+          <source src="audio/hit_sound.mp3" type="audio/mp3">
+        </audio>
+        <audio id="win-sound">
+          <source src="audio/win_sound.mp3" type="audio/mp3">
+        </audio>
+        <audio id="fight-sound">
+            <source src="audio/fight.wav" type="audio/wav">
+          </audio>
+    <div class="select-screen">
+      <div class="header">
+        <div class="mode">VS Mode</div>
+        <div class="title">
+          Choose a Pokemon
+        </div>
+      </div>
+      <div class="main">
+        <div class="character charmander" data-pokemon="charmander">
+          <div class="title">Charmander</div>
+          <div style="background: url(http://www.smogon.com/dex/media/sprites/xy/charmander.gif) no-repeat center center;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;height: 100px; width: 100px;"></div>
+        </div>
+
+        <div class="character bulbasaur" data-pokemon="bulbasaur">
+          <div class="title">Bulbasaur</div>
+          <div style="background: url(http://www.smogon.com/dex/media/sprites/xy/bulbasaur.gif) no-repeat center center;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;height: 100px; width: 100px;"></div>
+        </div>
+
+        <div class="character squirtle" data-pokemon="squirtle">
+          <div class="title">Squirtle</div>
+          <div style="background: url(http://www.smogon.com/dex/media/sprites/xy/squirtle.gif) no-repeat center center;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;height: 100px; width: 100px;"></div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Battle Screen -->
+
+
+  <div id="battle-screen">
+     <div class="fight-btn">
+      fight
+    </div>
+
+    <div class="battle-btns">
+      <div class="attack rock" data-attack="rock">
+        <img src="https://i.imgur.com/0sWAgmm.png" width="100%">
+        Rock
+      </div><div class="attack paper" data-attack="paper">
+        <img src="https://i.imgur.com/aU8NcKH.png">
+        Paper
+      </div><div class="attack scissors" data-attack="scissors">
+        <img src="https://i.imgur.com/n4HFHgj.png">
+        Scissors
+      </div>
+    </div>
+
+    <div class="player">
+      <div class="player1">
+        <div class="stats">
+          <div class="name">
+            Charmander
+            <div class="level">
+              Lv5
+            </div>
+          </div>
+
+          <div class="health">
+            <div class="title">HP:</div>
+            <div class="health-bar">
+              <div class="inside" style="width: 100%;"></div>
+            </div>
+          </div>
+
+        </div>
+        <img src="http://www.smogon.com/dex/media/sprites/xy/charmander.gif" />
+
+      </div>
+    </div>
+
+    <div class="cpu">
+      <div class="player2">
+        <div class="stats">
+          <div class="name">
+            Charmander
+            <div class="level">
+              Lv5
+            </div>
+          </div>
+
+          <div class="health">
+            <div class="title">HP:</div>
+            <div class="health-bar">
+              <div class="inside" style="width: 100%;"></div>
+            </div>
+          </div>
+
+        </div>
+        <img src="http://www.smogon.com/dex/media/sprites/xy/charmander.gif" />
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Winner screen -->
+
+  <div id="winner-screen" data-win="winner-screen">
+    <div class="winner-title">
+      Winner
+    </div>
+    <div class="winner-img">
+      <img id="img" src="http://www.smogon.com/dex/media/sprites/xy/charmander.gif" />
+    </div>
+    <div class="try-again">
+      <a href="index.html">Try again?</a>
+    </div>
+  </div>
+
+
+
+
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
